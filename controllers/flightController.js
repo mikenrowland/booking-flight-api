@@ -1,4 +1,5 @@
 const middleware = require('../fakeDB/middleware');
+const {v4: uuid} = require('uuid');
 
 const getAllFlights = (req, res) => {
     try{
@@ -27,9 +28,14 @@ const getFlight = (req, res) => {
 
 const createFlight = (req, res) => {
     try{
-        const flight = req.body;
-        const flights = middleware.getAllFlights();
-        flight.id = flights.length + 1;
+        const { title, time, price } = req.body;
+        const flight = {
+            id: uuid(),
+            title,
+            price,
+            time,
+            date: new Date().toLocaleDateString()
+        };
         const newFlight = middleware.createFlight(flight);
         if (newFlight) res.status(201).json({message: "Success! Flight created", newFlight});
         else res.status(500).json({ error: "An unexpected error occurred" });
@@ -43,7 +49,14 @@ const createFlight = (req, res) => {
 const updateFlight = (req, res) => {
     try {
         const id = req.params.id;
-        const flight = req.body;
+        const { title, time, price } = req.body;
+        const flight = {
+            id,
+            title,
+            price,
+            time,
+            date: new Date().toLocaleDateString()
+        };
         const updatedFlight = middleware.updateFlight(id, flight);
         if (updatedFlight) res.status(200).json({message: "Success! Flight updated", updatedFlight});
         else res.status(404).json({ error: "Flight not found" });
