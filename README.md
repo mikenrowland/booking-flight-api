@@ -15,13 +15,13 @@ NodeJS, Express, Nodemailer
 
     *N.B.: NodeJS and Express were already previously installed for this project*
 
-* A sendmail function was then created in the index.js file to handle the nodemailer transporter
+* A mailSender function was then created in the index.js file to handle the nodemailer transporter
 
 * An OAuth2 Gmail service was setup on Google cloud platform and the clientID, clientSecret and refreshtoken were collected to setup the auth for the nodemailer transporter
 
 * All auth credentials were saved in a .env file and accessed using the process.env function of dotenv node package
 
-* Using the sendmail method of the nodemailer transporter, a simple message was sent as text to a recipient from authorized testuser account.
+* Using the sendmail method of the nodemailer transporter, a simple message was sent as text to a recipient from my authorized testuser account.
 
 
 ## Screenshots 

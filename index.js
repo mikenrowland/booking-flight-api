@@ -20,7 +20,7 @@ app.listen(port, () => {
 });
 
 
-async function main() {
+async function mailSender() {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
       auth: {
@@ -46,4 +46,4 @@ async function main() {
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 }
 
-main().catch(console.error);
+mailSender().catch(console.error);
