@@ -8,7 +8,7 @@ const getAllFlights = (req, res) => {
         else res.status(500).json({ error: "An unexpected error occurred" });
     }
     catch(err){
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ error: "Server Down! An unexpected error occured." });
     }
     
 }
@@ -21,7 +21,7 @@ const getFlight = (req, res) => {
         else res.status(404).json({ error: "Flight not found" });
     }
     catch {
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ error: "Server Down! An unexpected error occured." });
     }
     
 }
@@ -41,7 +41,7 @@ const createFlight = (req, res) => {
         else res.status(500).json({ error: "An unexpected error occurred" });
     }
     catch(err){
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ error: "Server Down! An unexpected error occured." });
     }
     
 }
@@ -63,7 +63,7 @@ const updateFlight = (req, res) => {
     }
     catch(err){
         console.log(err);
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ error: "Server Down! An unexpected error occured." });
     }
 }
 
@@ -75,7 +75,7 @@ const deleteFlight = (req, res) => {
         else res.status(404).json({ error: "Flight not found" });
     }
     catch(err){
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ error: "Server Down! An unexpected error occured." });
     }
     
 }
