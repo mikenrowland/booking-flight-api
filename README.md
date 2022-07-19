@@ -26,4 +26,6 @@ NodeJS, Express, Nodemailer
 
 ## Screenshots 
 
+![Snapshot1 of mail received](emailSnapshot1.jpg)
+
 ![Snapshot of mail received](emailSnapshot.jpg)

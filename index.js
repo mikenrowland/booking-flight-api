@@ -19,8 +19,9 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
+let text = "Hey Mykie! I just created my first SMTP service using nodemailer and Google cloud platform. Check it out here https://github.com/mykie88/booking-flight-api";
 
-async function mailSender() {
+async function mailSender(message) {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
       auth: {
@@ -34,16 +35,15 @@ async function mailSender() {
   });
 
   let info = await transporter.sendMail({
-    from: "michaelrowland.ng@gmail.com", // sender address
-    to: "mykhelmyers@gmail.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // html body
+    from: "michaelrowland.ng@gmail.com", // Sender's address
+    to: "mykhelmyers@gmail.com", // Receiver's address list
+    subject: "Hello Mykie ✔", // Subject line
+    text: message, // Plain text body
   });
 
   console.log("Message successfully sent with ID: %s", info.messageId);
-
+  console.log(info);
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 }
 
-mailSender().catch(console.error);
+mailSender(text).catch(console.error);
